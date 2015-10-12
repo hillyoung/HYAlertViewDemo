@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "HYAlertViewView.h"
+#import "HYAlertView.h"
 
 @interface ViewController ()
 
@@ -27,9 +27,9 @@
 
 
 - (IBAction)touchAlertButton:(UIButton *)sender {
-    HYAlertViewView *alertView = [[HYAlertViewView alloc] initWithTitle:@"友情提醒" message:@"提醒信息" buttonTitles:@"取消", @"确定", nil];
+    HYAlertView *alertView = [[HYAlertView alloc] initWithTitle:@"友情提醒" message:@"提醒信息" buttonTitles:@"取消", @"确定", nil];
     alertView.alertViewStyle = sender.tag;
-    [alertView showWithCompletion:^(HYAlertViewView *alertView, NSInteger selectIndex) {
+    [alertView showWithCompletion:^(HYAlertView *alertView, NSInteger selectIndex) {
         NSLog(@"点击了%d", (int)selectIndex);
     }];
 }

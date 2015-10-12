@@ -1,11 +1,11 @@
 //
-//  HYAlertViewView.m
+//  HYAlertView.m
 //  HYAlertViewDemo
 //
 //  Created by yanghaha on 15/10/12.
 //  Copyright (c) 2015年 yanghaha. All rights reserved.//
 
-#import "HYAlertViewView.h"
+#import "HYAlertView.h"
 
 #define kBaseTag 1000
 #define kContentViewWidth 260.0f
@@ -18,7 +18,7 @@ colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
-@interface HYAlertViewView ()
+@interface HYAlertView ()
 {
     UIView *contentView;
     UIButton *cancelBtn;
@@ -36,11 +36,11 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 @property (nonatomic, strong)   NSMutableArray *textFields;
 
 
-@property (nonatomic,copy) void (^dialogViewCompleteHandle)(HYAlertViewView *, NSInteger);
+@property (nonatomic,copy) void (^dialogViewCompleteHandle)(HYAlertView *, NSInteger);
 
 @end
 
-@implementation HYAlertViewView
+@implementation HYAlertView
 
 -(id)initWithTitle:(NSString *)title message:(NSString *)message buttonTitles:(NSString *)otherButtonTitles, ...
 {
@@ -94,10 +94,10 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     return _messageFont;
 }
 
-- (void)setAlertViewStyle:(HYAlertViewViewStyle)alertViewStyle {
+- (void)setAlertViewStyle:(HYAlertViewStyle)alertViewStyle {
     _alertViewStyle = alertViewStyle;
 
-    if (_alertViewStyle != HYAlertViewViewStyleDefault) {
+    if (_alertViewStyle != HYAlertViewStyleDefault) {
         [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
         [self setup];
     }
@@ -213,7 +213,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     NSMutableDictionary *bindDic = nil;
     NSDictionary *paramDic = @{@"topMargin":@(kMarginTopButtom),@"lineHeight":@(1.0),@"msgMarginLeftRight":@(17.0f),@"marginTop":@(kMarginTopButtom),@"marginLeft":@(kMarginLeftRight)};
 
-    if (self.alertViewStyle == HYAlertViewViewStyleDefault) {
+    if (self.alertViewStyle == HYAlertViewStyleDefault) {
         //消息体
         UIFont *msgFont = self.messageFont;
         _msgLabel = [[UILabel alloc]init];
@@ -243,13 +243,13 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
                       @"lineView":lineView,
                       @"relateBtn":relateBtn} mutableCopy];
         NSString *formatStr = @"V:|-topMargin-[titleLabel]-topMargin-";
-        int textFieldCount = self.alertViewStyle==HYAlertViewViewStyleLoginAndPasswordInput? 2:1;
+        int textFieldCount = self.alertViewStyle==HYAlertViewStyleLoginAndPasswordInput? 2:1;
         for (int i = 0; i < textFieldCount; i++) {
             UITextField *textField = [[UITextField alloc] init];
             textField.borderStyle = UITextBorderStyleRoundedRect;
             textField.translatesAutoresizingMaskIntoConstraints = NO;
             textField.font = self.messageFont;
-            textField.secureTextEntry = (i==1 || self.alertViewStyle == HYAlertViewViewStyleSecureTextInput);
+            textField.secureTextEntry = (i==1 || self.alertViewStyle == HYAlertViewStyleSecureTextInput);
             textField.layer.masksToBounds = YES;
 
             if (textFieldCount > 1) {
@@ -329,14 +329,14 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 #pragma mark - Message
 
--(void)showInView:(UIView *)baseView completion:(void (^)(HYAlertViewView *, NSInteger))completeBlock
+-(void)showInView:(UIView *)baseView completion:(void (^)(HYAlertView *, NSInteger))completeBlock
 {
     self.dialogViewCompleteHandle = completeBlock;
     
     if(!_seriesAlert)
     {
         for (UIView *subView in baseView.subviews) {
-            if([subView isKindOfClass:[HYAlertViewView class]])
+            if([subView isKindOfClass:[HYAlertView class]])
             {
                 return;
             }
@@ -362,7 +362,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 /**
  *  显示弹出框
  */
--(void)showWithCompletion:(void (^)(HYAlertViewView *, NSInteger))completeBlock
+-(void)showWithCompletion:(void (^)(HYAlertView *, NSInteger))completeBlock
 {
     UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
     [self showInView:keyWindow completion:completeBlock];

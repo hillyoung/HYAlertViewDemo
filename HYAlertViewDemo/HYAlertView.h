@@ -1,5 +1,5 @@
 //
-//  HYAlertViewView.h
+//  HYAlertView.h
 //  HYAlertViewDemo
 //
 //  Created by yanghaha on 15/10/12.
@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSInteger, HYAlertViewViewStyle) {
-    HYAlertViewViewStyleDefault = 0,
-    HYAlertViewViewStyleSecureTextInput,
-    HYAlertViewViewStylePlainTextInput,
-    HYAlertViewViewStyleLoginAndPasswordInput
+typedef NS_ENUM(NSInteger, HYAlertViewStyle) {
+    HYAlertViewStyleDefault = 0,
+    HYAlertViewStyleSecureTextInput,
+    HYAlertViewStylePlainTextInput,
+    HYAlertViewStyleLoginAndPasswordInput
 };
 
-@interface HYAlertViewView : UIView
+@interface HYAlertView : UIView
 
 @property (nonatomic,strong) UILabel *msgLabel;
 
@@ -26,7 +26,7 @@ typedef NS_ENUM(NSInteger, HYAlertViewViewStyle) {
 
 @property (nonatomic) BOOL   seriesAlert;
 
-@property (nonatomic) HYAlertViewViewStyle alertViewStyle;
+@property (nonatomic) HYAlertViewStyle alertViewStyle;
 
 /**
  *  @两个按钮纯文本显示（block回调方式）
@@ -36,9 +36,9 @@ typedef NS_ENUM(NSInteger, HYAlertViewViewStyle) {
 /**
  *  显示弹出框
  */
--(void)showWithCompletion:(void (^)(HYAlertViewView *alertView ,NSInteger selectIndex))completeBlock;
+-(void)showWithCompletion:(void (^)(HYAlertView *alertView ,NSInteger selectIndex))completeBlock;
 
--(void)showInView:(UIView *)baseView completion:(void (^)(HYAlertViewView *alertView ,NSInteger selectIndex))completeBlock;
+-(void)showInView:(UIView *)baseView completion:(void (^)(HYAlertView *alertView ,NSInteger selectIndex))completeBlock;
 
 /**
  *获取指定的textField
