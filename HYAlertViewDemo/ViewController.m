@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "HYAlertViewView.h"
 
 @interface ViewController ()
 
@@ -22,6 +23,15 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+- (IBAction)touchAlertButton:(UIButton *)sender {
+    HYAlertViewView *alertView = [[HYAlertViewView alloc] initWithTitle:@"友情提醒" message:@"提醒信息" buttonTitles:@"取消", @"确定", nil];
+    alertView.alertViewStyle = sender.tag;
+    [alertView showWithCompletion:^(HYAlertViewView *alertView, NSInteger selectIndex) {
+        NSLog(@"点击了%d", (int)selectIndex);
+    }];
 }
 
 @end

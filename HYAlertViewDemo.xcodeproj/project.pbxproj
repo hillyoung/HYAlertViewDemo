@@ -14,6 +14,7 @@
 		9E9EB37E1BCB7E2B00080FDA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E9EB37D1BCB7E2B00080FDA /* Images.xcassets */; };
 		9E9EB3811BCB7E2B00080FDA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E9EB37F1BCB7E2B00080FDA /* LaunchScreen.xib */; };
 		9E9EB38D1BCB7E2B00080FDA /* HYAlertViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E9EB38C1BCB7E2B00080FDA /* HYAlertViewDemoTests.m */; };
+		9E9EB3981BCB7E3F00080FDA /* HYAlertViewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E9EB3971BCB7E3F00080FDA /* HYAlertViewView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		9E9EB3861BCB7E2B00080FDA /* HYAlertViewDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HYAlertViewDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E9EB38B1BCB7E2B00080FDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E9EB38C1BCB7E2B00080FDA /* HYAlertViewDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYAlertViewDemoTests.m; sourceTree = "<group>"; };
+		9E9EB3961BCB7E3F00080FDA /* HYAlertViewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYAlertViewView.h; sourceTree = "<group>"; };
+		9E9EB3971BCB7E3F00080FDA /* HYAlertViewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYAlertViewView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,8 @@
 		9E9EB36F1BCB7E2B00080FDA /* HYAlertViewDemo */ = {
 			isa = PBXGroup;
 			children = (
+				9E9EB3961BCB7E3F00080FDA /* HYAlertViewView.h */,
+				9E9EB3971BCB7E3F00080FDA /* HYAlertViewView.m */,
 				9E9EB3741BCB7E2B00080FDA /* AppDelegate.h */,
 				9E9EB3751BCB7E2B00080FDA /* AppDelegate.m */,
 				9E9EB3771BCB7E2B00080FDA /* ViewController.h */,
@@ -222,6 +227,7 @@
 				9E9EB3791BCB7E2B00080FDA /* ViewController.m in Sources */,
 				9E9EB3761BCB7E2B00080FDA /* AppDelegate.m in Sources */,
 				9E9EB3731BCB7E2B00080FDA /* main.m in Sources */,
+				9E9EB3981BCB7E3F00080FDA /* HYAlertViewView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
